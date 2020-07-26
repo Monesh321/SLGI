@@ -37,9 +37,21 @@ def search(driver):
 
 @pytest.mark.usefixtures("driver", "search")
 class Tests():
-    def test_21_verify_url3_title(self, search):
+    def test_21_verify_url4_title(self, search):
         time.sleep(3)
         search.verify_title()
 
-    def test_22_verify_search(self, search):
-        pass
+    def test_22_verify_search_results_header(self, search):
+        search.verify_header_present()
+
+    def test_23_verify_search_results_breadcrumb_is_active(self, search):
+        search.verify_breadcrumb_active()
+
+    def test_24_verify_search_results_count_is_displayed_correctly(self, search):
+        search.verify_result_count_displayed()
+
+    def test_25_verify_search_results_links_are_valid_urls(self, search):
+        search.verify_search_result_links()
+
+
+
